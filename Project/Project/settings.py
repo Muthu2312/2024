@@ -119,7 +119,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# The directory where collected static files will be stored (for production)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Additional directories to look for static files (for development)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
