@@ -17,14 +17,6 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
+
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myproject.settings")
-    from django.core.management import execute_from_command_line
-    from django.core.wsgi import get_wsgi_application
-
-    application = get_wsgi_application()
-    from whitenoise import WhiteNoise
-    application = WhiteNoise(application, root='staticfiles/')
-
-    execute_from_command_line(sys.argv)
-
+    main()
