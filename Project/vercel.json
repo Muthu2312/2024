@@ -1,45 +1,11 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "Project/wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.9"
-      }
-    },
-    {
-      "src": "staticfiles/**/*",
-      "use": "@vercel/static"
-    }
+    { "src": "manage.py", "use": "@vercel/python" },
+    { "src": "staticfiles/**/*", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "Project/wsgi.py"
-    }
-  ],
-  "env": {
-    "DB_HOST": "ep-muddy-poetry-a4u7isfq.us-east-1.aws.neon.tech",
-    "DB_PORT": "5432",
-    "DB_NAME": "verceldb",
-    "DB_USER": "default",
-    "DB_PASSWORD": "6muvgs9CwYJR",
-    "DATABASE_URL": "postgres://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_NAME?sslmode=require"
-  },
-  "build": {
-    "env": {
-      "DB_HOST": "ep-muddy-poetry-a4u7isfq.us-east-1.aws.neon.tech",
-      "DB_PORT": "5432",
-      "DB_NAME": "verceldb",
-      "DB_USER": "default",
-      "DB_PASSWORD": "6muvgs9CwYJR",
-      "DATABASE_URL": "postgres://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_NAME?sslmode=require"
-    }
-  }
+    { "src": "/static/(.*)", "dest": "/staticfiles/$1" },
+    { "src": "(.*)", "dest": "manage.py" }
+  ]
 }
