@@ -6,6 +6,11 @@
   ],
   "routes": [
     { "src": "/static/(.*)", "dest": "/staticfiles/$1" },
-    { "src": "(.*)", "dest": "manage.py" }
-  ]
+    { "src": "/(.*)", "dest": "manage.py" }
+  ],
+  "functions": {
+    "api/*.py": {
+      "maxLambdaSize": "50mb"
+    }
+  }
 }
