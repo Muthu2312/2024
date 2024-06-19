@@ -5,12 +5,8 @@
       "src": "manage.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "50mb"
+        "includeFiles": ["Project/**", "staticfiles/**"]
       }
-    },
-    {
-      "src": "staticfiles/**/*",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
