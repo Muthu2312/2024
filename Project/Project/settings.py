@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-&$%y3!cbfx&2ta6m4kychzl%1ar(nv*ki-p^q+7&+-h15tz$t!
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app','https://website-muthu2312-muthus-projects-2efbcd42.vercel.app/']
 
 
 # Application definition
@@ -153,3 +153,21 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+import logging
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}
